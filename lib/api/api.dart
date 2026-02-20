@@ -13,7 +13,7 @@ class Api {
           .post(Uri.parse("https://fakestoreapi.com/auth/login"), body: body)
           .timeout(const Duration(seconds: 10));
 
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return response.body;
       } else {
         throw Exception("Login failed. Status Code: ${response.statusCode}");
