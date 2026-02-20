@@ -17,13 +17,14 @@ class AuthBloc extends Bloc<LoginEvent, AuthState> {
   ) async {
     emit(AuthLoadingState());
     try {
-      
       print("api call done");
 
       String token = await Api().loginUser(
         username: event.username,
         password: event.password,
       );
+
+      print(token);
 
       emit(AuthSuccessState(token: token));
     } catch (exception) {
